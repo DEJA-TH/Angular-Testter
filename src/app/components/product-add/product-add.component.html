@@ -1,0 +1,49 @@
+<div class="container mt-5">
+<h2>เพิ่มสินค้า</h2>
+
+ <form [formGroup]='productFormGroup' (ngSubmit)='addProduct()'  novalidate >
+  <input class= "form-control" type="number" formControlName='id' placeholder="ระบุรหัส"/>
+  <input class= "form-control" type="text" formControlName='name' placeholder="ระบุชื่อ"/>
+  <input class= "form-control" type="text" formControlName='price' placeholder="ระบุราคา"/>
+  <input class= "form-control" type="text" formControlName='rate' placeholder="ระบุความนิยม"/>
+  <input class= "form-control" type="text" formControlName='des' placeholder="ระบุข้อมูลเบื้องต้น"/>
+  <input class= "form-control" type="url" formControlName='img' placeholder="ใส่ที่อยู่รูปภาพ"/>
+
+  <button class='btn btn-info'>เพิ่ม</button></form>
+  <br>
+  <a [routerLink]="['/']">ย้อนกลับ</a>
+
+  <br><br>
+  <table class ="table table-striped">
+      <thead>
+          <tr>
+            <th>รหัส</th>
+            <th>ชื่อสินค้า</th>
+            <th>ราคา</th>
+            <th>ความนิยม</th>
+            <th>ข้อมูลสินค้า</th>
+            <th>รูปภาพ</th>
+          </tr>
+        </thead>
+    <tr *ngFor="let u of products">
+      <td>
+        {{u.id}}
+      </td>
+      <td>
+        {{u.name}}
+      </td>
+      <td>
+        {{u.price}}
+      </td>
+      <td>
+        {{u.rate}}
+      </td>
+      <td>
+        {{u.des}}
+      </td>
+      <td>
+        <img src="{{u.img}}">
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<div class="container mt-4">
+<div class="card">
+    <div class="card-header">
+        List Product
+        <div class="text-right">
+          <a [routerLink]="['/add']" >Add</a>
+        </div>
+    </div><br>
+
+<table class ="table">
+  <thead>
+    <tr>
+      <th>รหัส</th>
+      <th>ชื่อสินค้า</th>
+      <th>ราคา</th>
+      <th>ความนิยม</th>
+      <th>ข้อมูลสินค้า</th>
+      <th>รูปภาพ</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let u of products">
+    <td>
+      {{u.id}}
+    </td>
+    <td>
+      {{u.name}}
+    </td>
+    <td>
+      {{u.price}}
+    </td>
+    <td>
+      {{u.rate}}
+    </td>
+    <td>
+      {{u.des}}
+    </td>
+    <td>
+      <img src="{{u.img}}">
+    </td>
+    <td>
+    <button class= 'btn btn-info mr-2'> อัพเดต</button>
+   <button class='btn btn-danger' (click)='deleteProduct(u.id)'> ลบ</button>
+    <!-- <a class= 'btn btn-info' (click)="updateUser()"> UPDATE DATA</! -->
+    </td>
+  </tr>
+</table>
+<!-- <input class= "form-control" type="number" [(ngModel)]='iDdelete' placeholder="Enter Id to delete User" /> -->
+
+</div>
+</div>
